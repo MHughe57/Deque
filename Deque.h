@@ -1,9 +1,16 @@
-
+/**
+ * @file Deque.h
+ * @author Lizette Navarrete
+ * @date 2025-04-22
+ * @brief Creates the Deque class
+ * 
+ * A deque class constructed using dynamic double arrays 
+ */
 
 
 //const as a safety, anywhere just finding and returning is good
 #ifndef DEQUE_H
-#define DEQUE_H
+x#define DEQUE_H
 
 //possibly have resize helper?
 template<typename T> //declare template class
