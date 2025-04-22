@@ -10,7 +10,10 @@
 
 //const as a safety, anywhere just finding and returning is good
 #ifndef DEQUE_H
-x#define DEQUE_H
+#define DEQUE_H
+#include <iostream>
+
+
 
 //possibly have resize helper?
 //template<typename T> //declare template class
@@ -20,7 +23,7 @@ private:
   int front; //first data block in blockmap
   int back; //last data block in blockmap
   int elements; //number of elements stored in blockmap
-  int capacity; //total number of space in blockmap
+  int capacity = 60; //total number of space in blockmap
 public:
   Deque(); //constructor
   ~Deque(); //deconstructor
