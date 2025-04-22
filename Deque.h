@@ -6,32 +6,32 @@
 #define DEQUE_H
 
 //possibly have resize helper?
-template<typename T> //declare template class
+//template<typename T> //declare template class
 class Deque{
- private:
-  T** blockmap;
+private:
+  int** blockmap;
   int front; //first data block in blockmap
   int back; //last data block in blockmap
   int elements; //number of elements stored in blockmap
   int capacity; //total number of space in blockmap
- public:
+public:
   Deque(); //constructor
   ~Deque(); //deconstructor
 
-  void push_front(T valuex); //add to front
-  void push_back(T value); //add to back
+  void push_front(int valuex); //add to front
+  void push_back(int value); //add to back
 
   void pop_front(); //removes from value
   void pop_back(); //remove back value
 
-  T front() const; //return front element, no removal
-  T back() const; //return back element, no removal
+  int front() const; //return front element, no removal
+  int back() const; //return back element, no removal
 
   bool empty() const; //check if empty, T or F
   int size() const; //return # of elements
 
-  T operator[](int index) const; //Access Inde - deque[i], return copy of valuex
+  int operator[](int index) const; //Access Inde - deque[i], return copy of valuex
 };
 
-#include "Deque.tpp" // implement template
+//#include "Deque.tpp" // implement template
 #endif //DEQUE_H
