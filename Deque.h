@@ -1,0 +1,37 @@
+
+
+
+//const as a safety, anywhere just finding and returning is good
+#ifndef DEQUE_H
+#define DEQUE_H
+
+//possibly have resize helper?
+template<typename T> //declare template class
+class Deque{
+ private:
+  T** blockmap;
+  int front; //first data block in blockmap
+  int back; //last data block in blockmap
+  int elements; //number of elements stored in blockmap
+  int capacity; //total number of space in blockmap
+ public:
+  Deque(); //constructor
+  ~Deque(); //deconstructor
+
+  void push_front(T valuex); //add to front
+  void push_back(T value); //add to back
+
+  void pop_front(); //removes from value
+  void pop_back(); //remove back value
+
+  T front() const; //return front element, no removal
+  T back() const; //return back element, no removal
+
+  bool empty() const; //check if empty, T or F
+  int size() const; //return # of elements
+
+  T operator[](int index) const; //Access Inde - deque[i], return copy of valuex
+};
+
+#include "Deque.tpp" // implement template
+#endif //DEQUE_H
