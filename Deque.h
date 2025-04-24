@@ -22,10 +22,9 @@ private:
   int** blockmap;
   int front; //first data block in blockmap
   int back; //last data block in blockmap
-  int elements; //number of elements stored in blockmap
-  int capacity; //total number of space in blockmap //Maybe have blockSize *blockAmount?
-  int blockSize; //size of each block in array
-  int blockAmount; //total number of blocks
+  int elements; //number of elements stored in a block
+  int totalElements; //total number of elements in a block //Maybe have elements * totalBlocks?
+  int totalBlocks; //total number of blocks
   
 public:
   Deque(); //constructor
