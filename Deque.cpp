@@ -34,12 +34,12 @@ Deque::~Deque()
  * @post 
  * 
  */
-Deque::Deque():elements(0), front(NULL), back(NULL), totalBlocks (0), totalElements(elememts * totalBlocks)
+Deque::Deque():elements(3), front(NULL), back(NULL), totalBlocks (6), totalElements(elememts * totalBlocks)
 {
   blockmap = new int*[totalBlocks];
   for(int i = 0; i < totalBlocks; i++)
     {
-      blockmap[i] = new int[elements]
+      blockmap[i] = new int[elements];
     }
   
 }
