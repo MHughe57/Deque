@@ -36,6 +36,12 @@ Deque::~Deque()
  */
 Deque::Deque():elements(0), front(NULL), back(NULL), totalBlocks (0), totalElements(elememts * totalBlocks)
 {
+  blockmap = new int*[totalBlocks];
+  for(int i = 0; i < totalBlocks; i++)
+    {
+      blockmap[i] = new int[elements]
+    }
+  
 }
 
 void Deque::push_front(int valuex)
