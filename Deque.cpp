@@ -23,7 +23,7 @@ Deque::~Deque()
 {
   for(int i = 0; i < capacity; i++)
     delete[] blockmap[i];
-  delete blockmap[];
+  delete[] blockmap;
 }
 
 
