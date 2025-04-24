@@ -1,4 +1,14 @@
+/**
+ * @file main.cpp
+ * @author Lizette Navarrete
+ * @date 2025-04-23
+ * @brief Implementing and testing Deque class
+ * 
+ * Testing the Deque class and all of its functions
+ */
 
+
+#include <iostream>
 #include "Deque.h"
 
 using namespace std;
