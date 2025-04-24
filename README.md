@@ -5,7 +5,11 @@ Day 1:
     - created header + research
 
 Day 2:
-    -
+    -MORE RESEARCH
+    -Updated Header
+    -Updated CPP
+    -flushed out main (Possibly runable)
+    -Created  Makefile (untested)
 
 
 
