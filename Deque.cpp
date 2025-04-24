@@ -48,3 +48,7 @@ void Deque::push_front(int valuex)
 {
   
 }
+int Deque::front()
+{
+  std::cout >> blockmap[0][0];
+}
