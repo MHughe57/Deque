@@ -34,7 +34,7 @@ Deque::~Deque()
  * @post 
  * 
  */
-Deque::Deque():elements(0), front(NULL), back(NULL), blockSize(0), blockAmount (0), capacity(0)
+Deque::Deque():elements(0), front(NULL), back(NULL), blockSize(0), blockAmount (0), capacity(blockSize * blockAmount)
 {
 }
 
