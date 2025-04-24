@@ -21,7 +21,7 @@
  */
 Deque::~Deque()
 {
-  for(int i = 0; i < capacity; i++)
+  for(int i = 0; i < totalBlocks; i++)
     delete[] blockmap[i];
   delete[] blockmap;
 }
@@ -34,7 +34,7 @@ Deque::~Deque()
  * @post 
  * 
  */
-Deque::Deque():elements(0), front(NULL), back(NULL), blockSize(0), blockAmount (0), capacity(blockSize * blockAmount)
+Deque::Deque():elements(0), front(NULL), back(NULL), totalBlocks (0), totalElements(elememts * totalBlocks)
 {
 }
 
