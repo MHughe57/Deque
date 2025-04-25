@@ -34,7 +34,7 @@ Deque::~Deque()
  * @post 
  * 
  */
-Deque::Deque():elements(3), front(NULL), back(NULL), totalBlocks (6), totalElements(elememts * totalBlocks)
+Deque::Deque():blockSize(3), front(NULL), back(NULL), mapSize(16), totalElements(0)
 {
   blockmap = new int*[totalBlocks];
   for(int i = 0; i < totalBlocks; i++)
@@ -44,11 +44,25 @@ Deque::Deque():elements(3), front(NULL), back(NULL), totalBlocks (6), totalEleme
   
 }
 
-void Deque::push_front(int valuex)
+void Deque::push_front(int value)
 {
-  
+  if (){//if blockmap is empty/full run resize
+
+  }else{
+    front--;//push pointer to previous block (keeps it as 0) 
+  }
+  blockmap[front][0] = value; //insert new value into front block
 }
 int Deque::front()
 {
-  std::cout >> blockmap[0][0];
+  return blockmap[front][0]; //[0][0]?
 }
+
+
+
+
+//Block map visualization
+
+//   [ 0 , 1 , 2 , 3 ] block 0, holds elements indexed 0-4
+//   [ 4 , 5 , 6 , 7 ]
+//   [ 8 , 9 , 10 , 11 ]
