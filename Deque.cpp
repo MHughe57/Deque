@@ -34,7 +34,7 @@ Deque::~Deque()
  * @post 
  * 
  */
-Deque::Deque():blockSize(3), front(NULL), back(NULL), mapSize(16), totalElements(0)
+Deque::Deque():blockSize(3), front(0), back(0), mapSize(16), totalElements(0)
 {
   blockmap = new int*[mapSize];
   for(int i = 0; i < mapSize; i++)
@@ -49,7 +49,7 @@ void Deque::push_front(int value)
   if (){//if blockmap is empty/full run resize
 
   }else{
-    front--;//push pointer to previous block (keeps it as 0) 
+    front--;//push pointer to previous space in block/ previous block (keeps it as 0) 
   }
   blockmap[front][0] = value; //insert new value into front block
 }
@@ -63,7 +63,7 @@ void Deque::push_back(int value)
     {}
   else
     {
-      
+      back++;//push pointer to next space in block/next block
     }
 }
 
@@ -79,12 +79,11 @@ bool Deque::empty()
 {
   if(front =) //FRONT = 0? FRONT = NULL?
     {
-      true;
+      return true;
     }
-  
   else
     {
-      false;
+      return false;
     }
 }
 
