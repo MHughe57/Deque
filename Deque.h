@@ -36,7 +36,7 @@ public:
  * @post 
  * 
  */
-  Deque(); //constructor
+  Deque(); 
 
 /**
  * Deletes both dimensions of the deque
@@ -111,10 +111,38 @@ public:
  */
   int back() const; //return back element, no removal
 
-  bool empty() const; //check if empty, T or F
-  int size() const; //return # of elements
 
-  int operator[](int index) const; //Access Inde - deque[i], return copy of valuex
+/**
+ * Return a Boolean describing whether the deque is empty
+ *
+ * @pre 
+ * @return bool 
+ * @post 
+ * 
+ */
+  bool empty() const;
+
+/**
+ * should return the size of the deque (number of elements currently stored)
+ *
+ * @pre 
+ * @return int 
+ * @post 
+ * 
+ */
+  int size() const;
+
+
+/**
+ * Access Index - deque[i], return copy of value
+ *
+ * @param int index 
+ * @pre 
+ * @return int 
+ * @post 
+ * 
+ */
+  int operator[](int index) const; //Access Inde - deque[i], return copy of value
 };
 
 //#include "Deque.tpp" // implement template

@@ -21,7 +21,7 @@
  */
 Deque::~Deque()
 {
-  for(int i = 0; i < totalBlocks; i++)
+  for(int i = 0; i < mapSize; i++)
     delete[] blockmap[i];
   delete[] blockmap;
 }
@@ -36,10 +36,10 @@ Deque::~Deque()
  */
 Deque::Deque():blockSize(3), front(NULL), back(NULL), mapSize(16), totalElements(0)
 {
-  blockmap = new int*[totalBlocks];
-  for(int i = 0; i < totalBlocks; i++)
+  blockmap = new int*[mapSize];
+  for(int i = 0; i < mapSize; i++)
     {
-      blockmap[i] = new int[elements];
+      blockmap[i] = new int[blockSize];
     }
   
 }
@@ -55,7 +55,7 @@ void Deque::push_front(int value)
 }
 int Deque::front()
 {
-  return blockmap[front][0]; //[0][0]?
+  return blockmap[0][0]; //[0][0]?
 }
 
 
