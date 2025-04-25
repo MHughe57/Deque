@@ -100,11 +100,12 @@ int Deque::size()
   int size = 0;
   while(back != empty() ) //0? Null?
     {
-      for(int i = 0; i < mapSize; i++)
+      for(int i = 0; i < mapSize; i++) //maybe have to multiply by blocksize at the end?
 	{
-	  size++;
+	  size++; //
 	}
     }
+  std::cout >> size >> endl; //maybe size * blockSize? for elements?
 }
 
 
