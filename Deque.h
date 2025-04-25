@@ -22,21 +22,93 @@ private:
   int** blockmap;
   int front; //first data block in blockmap
   int back; //last data block in blockmap
-  int elements; //number of elements stored in a block
-  int totalElements; //total number of elements in a block //Maybe have elements * totalBlocks?
-  int totalBlocks; //total number of blocks
+  int blockSize; //number of elements stored in a block
+  int totalElements; //total number of elements in the map //Maybe have elements * totalBlocks?
+  int mapSize; //total number of blocks
   
 public:
+  
+
+/**
+ * Initializes an empty deque
+ *
+ * @pre 
+ * @post 
+ * 
+ */
   Deque(); //constructor
+
+/**
+ * Deletes both dimensions of the deque
+ *
+ * @pre 
+ * @post 
+ * 
+ */
   ~Deque(); //deconstructor
 
-  void push_front(int valuex); //add to front
+
+/**
+ * Add from the front, reallocating as necessary by either adding an array to your blockmap or resizing your blockmap
+ *
+ * @param int valuex 
+ * @pre 
+ * @return void 
+ * @post 
+ * 
+ */
+  void push_front(int value); //add to front
+
+/**
+ * Add from the back, reallocating as necessary by either adding an array to your blockmap or resizing your blockmap
+ *
+ * @param int value 
+ * @pre 
+ * @return void 
+ * @post 
+ * 
+ */
   void push_back(int value); //add to back
 
+/**
+ * Remove from the front, reallocating as necessary by either adding an array to your blockmap or resizing your blockmap
+ *
+ * @pre 
+ * @return void 
+ * @post 
+ * 
+ */
   void pop_front(); //removes from value
+
+/**
+ * Remove from the back, reallocating as necessary by either adding an array to your blockmap or resizing your blockmap
+ *
+ * @pre 
+ * @return void 
+ * @post 
+ * 
+ */
   void pop_back(); //remove back value
 
+
+/**
+ * return a copy of the item at the front
+ *
+ * @pre 
+ * @return int 
+ * @post 
+ * 
+ */
   int front() const; //return front element, no removal
+
+/**
+ * return a copy of the item at the back
+ *
+ * @pre 
+ * @return int 
+ * @post 
+ * 
+ */
   int back() const; //return back element, no removal
 
   bool empty() const; //check if empty, T or F
