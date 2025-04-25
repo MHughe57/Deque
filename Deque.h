@@ -71,7 +71,7 @@ public:
   void push_back(int value); //add to back
 
 /**
- * Remove from the front, reallocating as necessary by either adding an array to your blockmap or resizing your blockmap
+ *Remove from the front, reallocating as necessary by either adding an array to your blockmap or resizing your blockmap
  *
  * @pre 
  * @return void 
