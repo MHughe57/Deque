@@ -57,7 +57,56 @@ int Deque::front()
 {
   return blockmap[0][0]; //[0][0]?
 }
+void Deque::push_back(int value)
+{
+  if()//if blockmap is empty/full run resize
+    {}
+  else
+    {
+      
+    }
+}
 
+/**
+ * Should return a Boolean describing whether the deque is empty
+ *
+ * @pre 
+ * @return bool 
+ * @post 
+ * 
+ */
+bool Deque::empty()
+{
+  if(front =) //FRONT = 0? FRONT = NULL?
+    {
+      true;
+    }
+  
+  else
+    {
+      false;
+    }
+}
+
+/**
+ * should return the size of the deque (number of elements currently stored)
+ *
+ * @pre 
+ * @return int 
+ * @post 
+ * 
+ */
+int Deque::size()
+{
+  int size = 0;
+  while(back != empty() ) //0? Null?
+    {
+      for(int i = 0; i < mapSize; i++)
+	{
+	  size++;
+	}
+    }
+}
 
 
 
