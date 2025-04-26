@@ -46,13 +46,14 @@ Deque::Deque():blockSize(3), front(0), back(0), mapSize(16), totalElements(0)
 
 void Deque::push_front(int value)
 {
-  if (){//if blockmap is empty/full run resize
-
+  if (front == 0){//if no space in front, if blockmap is empty/full run resize
+    resize();
   }else{
     front--;//push pointer to previous space in block/ previous block (keeps it as 0) 
   }
   blockmap[front][0] = value; //insert new value into front block
 }
+
 int Deque::front()
 {
   return blockmap[0][0]; //[0][0]?
