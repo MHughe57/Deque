@@ -114,11 +114,11 @@ void Deque::push_back(int value)
  * Return a copy of the item at the particular location.
  *
  * @pre 
- * @return void 
+ * @return int 
  * @post 
  * 
  */
-void Deque::back(){
+int Deque::back(){
   return blockmap[back / blockSize][back % blockSize]
 }
 
@@ -143,7 +143,6 @@ bool Deque::empty()
       return false;
     }
 }
-
 /**
  * should return the size of the deque (number of elements currently stored)
  *
@@ -195,6 +194,8 @@ void Deque::resize(){
   //update variables
   blockmap = newMap;
   mapSize = newMapSize;
+  front = front();
+  back = back();
   
 }
 
