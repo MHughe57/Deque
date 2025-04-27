@@ -11,6 +11,8 @@
 #include 
 
 
+//Keep in mind: Pointers(front back) are 1D and the blockmap is 2D so using the pointer as a parameter wont work. Math is needed ro determine things like index within each block
+
 
 /**
  * Deletes both dimensions of the deque
@@ -44,28 +46,34 @@ Deque::Deque():blockSize(3), front(0), back(0), mapSize(16), totalElements(0)
   
 }
 
+
 void Deque::push_front(int value)
 {
   if (front == 0){//if no space in front, if blockmap is empty/full run resize
     resize();
-  }else{
-    front--;//push pointer to previous space in block/ previous block (keeps it as 0) 
   }
-  blockmap[front][0] = value; //insert new value into front block
+  front--;//push pointer to previous space in block/ previous block (keeps it as 0)
+  //the first part determines what number block value needs to be in. the second part tells you the position inside the block it should be, aka the index #.
+  blockmap[front / blockSize][front % blockSize] = value; //insert new value into front block
+  totalElements++
 }
+
 
 int Deque::front()
 {
   return blockmap[0][0]; //[0][0]?
 }
+
+
 void Deque::push_back(int value)
 {
   if()//if blockmap is empty/full run resize
     {}
-  else
-    {
-      back++;//push pointer to next space in block/next block
-    }
+  //this way because you need to find the next current position in the block and 
+  blockmap[back/blockSize][back % blockSize] = value;
+  back++;//push pointer to next space in block/next block
+  totalElements++;
+  
 }
 
 /**
@@ -78,7 +86,7 @@ void Deque::push_back(int value)
  */
 bool Deque::empty()
 {
-  if(front =) //FRONT = 0? FRONT = NULL?
+  if(totalElements = 0) //FRONT = 0? FRONT = NULL?
     {
       return true;
     }
@@ -98,6 +106,7 @@ bool Deque::empty()
  */
 int Deque::size()
 {
+  //can just do return elements? leave it if it works
   int size = 0;
   while(back != empty() ) //0? Null?
     {
