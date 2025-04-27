@@ -26,7 +26,7 @@ Deque::~Deque()
   for(int i = 0; i < mapSize; i++){
     delete[] blockmap[i];
   }
-  delete[] blockmap;
+      delete[] blockmap;
 }
 
 
@@ -172,23 +172,29 @@ void Deque::resize(){
 
   //initialize each element
   for (int i = 0; i < newMapSize; i++){
-    newMap[i] = new int[newMapSize]; //initialize each block
+    newMap[i] = new int[blockSize]; //initialize each block
   }
 
   //copy into new map, into new variables
+  for(int i = 0; i < mapSize; i++)
+    {
+      for(int j = 0; j < blockSize; j++)
+	{
+	  newMap[i][j]= blockmap[i][j];
+	}
+    }
+  
   
 
   //deallocate and delete new map
   for (int i = 0; i < mapSize; i++){
     delete[] blockmap[i];
   }
-  delete[] blockmap[];
+      delete[] blockmap;
 
   //update variables
   blockmap = newMap;
   mapSize = newMapSize;
-
-
   
 }
 
