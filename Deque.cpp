@@ -10,6 +10,7 @@
 #include <iostream>
 #include "Deque.h"
 
+using namespace std;
 //Keep in mind: Pointers(front back) are 1D and the blockmap is 2D so using the pointer as a parameter wont work. Math is needed ro determine things like index within each block
 
 
@@ -36,7 +37,7 @@ Deque::~Deque()
  * 
  */
 //start front and back in the middle, instead of at 0
-Deque::Deque():blockSize(3), front((mapSize * blockSize) / 2), back((mapSize * blockSize) / 2), mapSize(16), totalElements(0)
+Deque::Deque():blockSize(3),mapSize(16), front((mapSize * blockSize) / 2), back((mapSize * blockSize) / 2), totalElements(0)
 {
   blockmap = new int*[mapSize];
   for(int i = 0; i < mapSize; i++)
@@ -100,7 +101,7 @@ void Deque::push_back(int value)
   if()//if blockmap is empty/full run resize
     {}
   //this way because you need to find the next current position in the block and 
-  blockmap[back/blockSize][back % blockSize] = value;
+  blockmap[back / blockSize][back % blockSize] = value;
   back++;//push pointer to next space in block/next block
   totalElements++;
   
@@ -164,7 +165,27 @@ int Deque::size()
   std::cout >> size >> endl; //maybe size * blockSize? for elements?
 }
 
+void Deque::resize(){
+  newMapSize = mapSize * 2;
+  int** newMap = new int*[newMapSize]; //new blockmap, double the size
 
+  //initialize each element
+  for (int i = 0; i < newMapSize; i++){
+    newMap[i] = new int[newMapSize]; //initialize each block
+  }
+
+  //copy into new map
+
+  //deallocate and delete new map
+
+
+  //update variables
+  blockmap = newMap;
+  mapSize = newMapSize;
+
+
+  
+}
 
 //Block map visualization
 
