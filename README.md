@@ -16,6 +16,22 @@ Day 3:
       - naming comfusion + pointer confusion
     - Met up and gave up.
 
+Day 4:
+- Consistently updated cpp and .h
+- learned the 1d / 2d thing and updated code
+
+
+Notable issues:
+- lots of confusion regarding the pointers (i.e Front and Back)
+- Thw structure that blockmap takes on
+- copying during resize
+
+
+Hard Decisions:
+- Had to decide between starting off with a set amount of blocks or none at all
+  - prof said do what we want
+- decided to start off with some blocks loaded alredy
+
 
 Notes:
 The deque is the class
