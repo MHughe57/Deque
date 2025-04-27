@@ -23,8 +23,9 @@ using namespace std;
  */
 Deque::~Deque()
 {
-  for(int i = 0; i < mapSize; i++)
+  for(int i = 0; i < mapSize; i++){
     delete[] blockmap[i];
+  }
   delete[] blockmap;
 }
 
@@ -174,10 +175,14 @@ void Deque::resize(){
     newMap[i] = new int[newMapSize]; //initialize each block
   }
 
-  //copy into new map
+  //copy into new map, into new variables
+  
 
   //deallocate and delete new map
-
+  for (int i = 0; i < mapSize; i++){
+    delete[] blockmap[i];
+  }
+  delete[] blockmap[];
 
   //update variables
   blockmap = newMap;
