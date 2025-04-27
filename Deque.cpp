@@ -1,3 +1,4 @@
+
 /**
  * @file Deque.cpp
  * @author Lizette Navarrete
@@ -46,6 +47,16 @@ Deque::Deque():blockSize(3), front((mapSize * blockSize) / 2), back((mapSize * b
 }
 
 
+
+/**
+ * Add from the front, reallocating as necessary by either adding an array to your blockmap or resizing your blockmap
+ *
+ * @param int value 
+ * @pre 
+ * @return void 
+ * @post 
+ * 
+ */
 void Deque::push_front(int value)
 {
   if (front == 0){//if no space in front, if blockmap is empty/full run resize
@@ -59,12 +70,31 @@ void Deque::push_front(int value)
 }
 
 
+
+/**
+ *  return a copy of the item at the front
+ *
+ * @pre 
+ * @return int 
+ * @post 
+ * 
+ */
 int Deque::front()
 {
   return blockmap[front / blockSize][front % blockSize]; //[0][0]?
 }
 
 
+
+/**
+ * Add from the back, reallocating as necessary by either adding an array to your blockmap or resizing your blockmap.
+ *
+ * @param int value 
+ * @pre 
+ * @return void 
+ * @post 
+ * 
+ */
 void Deque::push_back(int value)
 {
   if()//if blockmap is empty/full run resize
@@ -77,6 +107,15 @@ void Deque::push_back(int value)
 }
 
 
+
+/**
+ * Return a copy of the item at the particular location.
+ *
+ * @pre 
+ * @return void 
+ * @post 
+ * 
+ */
 void Deque::back(){
   return blockmap[back / blockSize][back % blockSize]
 }
