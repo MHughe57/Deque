@@ -25,7 +25,8 @@ private:
   int blockSize; //number of elements stored in a block
   int totalElements; //total number of elements in the map //Maybe have elements * totalBlocks?
   int mapSize; //total number of blocks
-  
+
+  void resize();
 public:
   
 
