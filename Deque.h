@@ -20,12 +20,11 @@
 class Deque{
 private:
   int** blockmap;
+  int mapSize; //total number of blocks
+  int blockSize; //number of elements stored within a block
   int front; //first data block in blockmap
   int back; //last data block in blockmap
-  int blockSize; //number of elements stored in a block
-  int totalElements; //total number of elements in the map //Maybe have elements * totalBlocks?
-  int mapSize; //total number of blocks
-
+  int totalElements; //total number of elements filled inside the blocks
   void resize();
 public:
   
@@ -100,7 +99,7 @@ public:
  * @post 
  * 
  */
-  int front() const; //return front element, no removal
+  int frontFunc() const; //return front element, no removal
 
 /**
  * return a copy of the item at the back
@@ -110,7 +109,7 @@ public:
  * @post 
  * 
  */
-  int back() const; //return back element, no removal
+  int backFunc() const; //return back element, no removal
 
 
 /**

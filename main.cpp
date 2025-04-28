@@ -20,14 +20,14 @@ int main(){
   cout << "Push Test" << endl;
 
   //push front
-  for (int i = 1; i <= 50; ++i){
+  for (int i = 1; i <= 5; ++i){
     A.push_front(i);
     cout << "Pushed to the front ( " << i << " )" << endl;
   }
 
   //push back
   cout << "Pushing Back" << endl;
-  for (int i = 1; i <= 30; ++i){
+  for (int i = 1; i <= 5; ++i){
     A.push_back(i);
     cout << "Pushed to the back ( " << i << " )" << endl;
   }

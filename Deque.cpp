@@ -38,7 +38,7 @@ Deque::~Deque()
  * 
  */
 //start front and back in the middle, instead of at 0
-Deque::Deque():blockSize(3),mapSize(16), front((mapSize * blockSize) / 2), back((mapSize * blockSize) / 2), totalElements(0)
+Deque::Deque(): mapSize(16), blockSize(3), front((mapSize * blockSize) / 2), back((mapSize * blockSize) / 2), totalElements(0)
 {
   blockmap = new int*[mapSize];
   for(int i = 0; i < mapSize; i++)
@@ -68,7 +68,7 @@ void Deque::push_front(int value)
   //the first part determines what number block value needs to be in. the second part tells you the position inside the block it should be, aka the index #.
   // '/' - row, '%' remainder, tells you column
   blockmap[front / blockSize][front % blockSize] = value; //insert new value into front block
-  totalElements++
+  totalElements++;
 }
 
 
@@ -81,7 +81,7 @@ void Deque::push_front(int value)
  * @post 
  * 
  */
-int Deque::front()
+int Deque::frontFunc() const
 {
   return blockmap[front / blockSize][front % blockSize]; //[0][0]?
 }
@@ -99,8 +99,10 @@ int Deque::front()
  */
 void Deque::push_back(int value)
 {
-  if()//if blockmap is empty/full run resize
-    {}
+  if(totalElements == mapSize * blockSize)//if blockmap is full run resize
+    {
+      resize();
+    }
   //this way because you need to find the next current position in the block and 
   blockmap[back / blockSize][back % blockSize] = value;
   back++;//push pointer to next space in block/next block
@@ -118,8 +120,8 @@ void Deque::push_back(int value)
  * @post 
  * 
  */
-int Deque::back(){
-  return blockmap[back / blockSize][back % blockSize]
+int Deque::backFunc() const {
+  return blockmap[back / blockSize][back % blockSize];
 }
 
 
@@ -132,9 +134,9 @@ int Deque::back(){
  * @post 
  * 
  */
-bool Deque::empty()
+bool Deque::empty() const
 {
-  if(totalElements = 0) //FRONT = 0? FRONT = NULL?
+  if(totalElements == 0) //FRONT = 0? FRONT = NULL?
     {
       return true;
     }
@@ -151,7 +153,7 @@ bool Deque::empty()
  * @post 
  * 
  */
-int Deque::size()
+int Deque::size() const
 {
   //can just do return elements? leave it if it works
   int size = 0;
@@ -162,11 +164,11 @@ int Deque::size()
 	  size++; //
 	}
     }
-  std::cout >> size >> endl; //maybe size * blockSize? for elements?
+  return size;
 }
 
 void Deque::resize(){
-  newMapSize = mapSize * 2;
+  int newMapSize = mapSize * 2;
   int** newMap = new int*[newMapSize]; //new blockmap, double the size
 
   //initialize each element
@@ -206,3 +208,39 @@ void Deque::resize(){
 //   [ 0 , 1 , 2 , 3 ] block 0, holds elements indexed 0-4
 //   [ 4 , 5 , 6 , 7 ]
 //   [ 8 , 9 , 10 , 11 ]
+
+
+int Deque::operator[](int index) const{
+  if(index < 0 || index >= totalElements){ //make sure index is valid
+    cerr << "Error, index is out of range " << endl;
+    return -1;
+  }
+  //find the actual index
+  int newIndex = (front + index) % (mapSize * blockSize); //go around to front if needed
+  return blockmap[newIndex / blockSize][newIndex % blockSize];
+}
+
+
+void Deque::pop_front(){ //doesnt necessarily delete index or block, just moves deeper into blockmap
+  front++;
+  totalElements--;
+  //if crossed into a new block, delete old one
+  int index = (back + 1) / blockSize;
+  int newIndex = back / blockSize;
+  if (index != newIndex){
+    delete[] blockmap[index];
+    blockmap[index] = nullptr;
+  }
+}
+
+void Deque::pop_back(){
+  back--;
+  totalElements--;
+
+  int index = (back + 1) / blockSize;
+  int newIndex = back / blockSize;
+  if (index != newIndex){
+    delete[] blockmap[index];
+    blockmap[index] = nullptr;
+  }
+}
