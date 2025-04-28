@@ -156,15 +156,7 @@ bool Deque::empty() const
 int Deque::size() const
 {
   //can just do return elements? leave it if it works
-  int size = 0;
-  while(back != empty() ) //0? Null?
-    {
-      for(int i = 0; i < mapSize; i++) //maybe have to multiply by blocksize at the end?
-	{
-	  size++; //
-	}
-    }
-  return size;
+  return totalElements;
 }
 
 void Deque::resize(){
@@ -183,6 +175,7 @@ void Deque::resize(){
       for(int j = 0; j < blockSize; j++)
 	{
 	  newMap[tempIndex / i][tempIndex % j]= blockmap[i / blockSize][j % blockSize];
+	  tempIndex++;
 	}
     }
   
@@ -222,25 +215,31 @@ int Deque::operator[](int index) const{
 
 
 void Deque::pop_front(){ //doesnt necessarily delete index or block, just moves deeper into blockmap
+  
   front++;
   totalElements--;
+  //dont leave bounds of block
+  if(front >= mapSize * blockSize){
+    front = 0;
+  }
+
   //if crossed into a new block, delete old one
-  int index = (back + 1) / blockSize;
-  int newIndex = back / blockSize;
-  if (index != newIndex){
-    delete[] blockmap[index];
-    blockmap[index] = nullptr;
+  if (front / blockSize != back / blockSize){
+    delete[] blockmap[front / blockSize];
+    blockmap[front / blockSize] = nullptr; //safety
   }
 }
 
 void Deque::pop_back(){
   back--;
   totalElements--;
-
-  int index = (back + 1) / blockSize;
-  int newIndex = back / blockSize;
-  if (index != newIndex){
-    delete[] blockmap[index];
-    blockmap[index] = nullptr;
+  
+  if (back < 0){
+    back = mapSize * blockSize - 1;
+  }
+  
+  if (back / blockSize != (back + 1) / blockSize){
+    delete[] blockmap[(back + 1) / blockSize];
+    blockmap[(back + 1) / blockSize] = nullptr; //safety
   }
 }
