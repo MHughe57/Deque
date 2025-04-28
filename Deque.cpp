@@ -175,11 +175,12 @@ void Deque::resize(){
   }
 
   //copy into new map, into new variables
+  int tempIndex = 0; //keep track of index num we are copying
   for(int i = 0; i < mapSize; i++)
     {
       for(int j = 0; j < blockSize; j++)
 	{
-	  newMap[i][j]= blockmap[i][j];
+	  newMap[tempIndex / i][tempIndex % j]= blockmap[i / blockSize][j % blockSize];
 	}
     }
   
@@ -189,13 +190,14 @@ void Deque::resize(){
   for (int i = 0; i < mapSize; i++){
     delete[] blockmap[i];
   }
-      delete[] blockmap;
+  delete[] blockmap;
 
   //update variables
   blockmap = newMap;
   mapSize = newMapSize;
-  front = front();
-  back = back();
+  
+  front = tempIndex;
+  back = tempIndex;
   
 }
 
