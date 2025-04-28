@@ -25,7 +25,10 @@ Notable issues:
 - lots of confusion regarding the pointers (i.e Front and Back)
 - Thw structure that blockmap takes on
 - copying during resize
-
+- keep running into segmentation faults
+  - issues with memory handling
+  - indexing or column/row issue?
+  - figure issue with handling indexing, check if index valid?
 
 Hard Decisions:
 - Had to decide between starting off with a set amount of blocks or none at all
