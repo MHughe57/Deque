@@ -36,26 +36,26 @@ int main(){
   //Operator in use to output entire map
   cout << "Elements currently: " << endl;
   for (int i = 0; i < A.size(); ++i){
-    cout << i << ": " << d[i] << endl;
+    cout << i << ": " << A[i] << endl;
   }
 
   
-  cout << "Current num of elements: " << A.size << endl;
-  cout << "Element in front: "<< A.front() << endl;
-  cout << "Element in back: " << A.back() << endl;
+  cout << "Current num of elements: " << A.size() << endl;
+  cout << "Element in front: "<< A.frontFunc() << endl;
+  cout << "Element in back: " << A.backFunc() << endl;
 
 
   //pop test
   cout << "Pop Test" << endl;
   for (int i = 1; i <= 15; i++){
-    A.pop_front(i);
-    A.pop_back(i);
+    A.pop_front();
+    A.pop_back();
   }
 
-  cout << "New Size: " A.size();
-  cout << "New front: " << A.front() << endl;
-  cout << "New back: " << A.back() << endl;
+  cout << "New Size: " << A.size();
+  cout << "New front: " << A.frontFunc() << endl;
+  cout << "New back: " << A.backFunc() << endl;
 
-  cout << "Testing Conplete" << endl;
+  cout << "Testing Complete" << endl;
   return 0;
 }
